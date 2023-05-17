@@ -33,8 +33,7 @@ def rotation_trace_points(n, A, B, alpha, total_points=50):
         r0 = A - R*(cos(alpha/2)*i + sin(alpha/2)*j)
 
     circle_point = lambda i, j, r0, R, phi: r0 + R*cos(phi)*i + R*sin(phi)*j
-    angles = list(np.linspace(-alpha/2, 0, int(total_points/2)))
-    angles += list(np.linspace(0, alpha/2, int(total_points/2)))
+    angles = np.linspace(-alpha/2, alpha/2, total_points)
     points = [circle_point(i, j, r0, R, phi) for phi in angles]
 
     return points
