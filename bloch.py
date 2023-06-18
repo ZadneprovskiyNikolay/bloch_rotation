@@ -4,7 +4,7 @@ from math import cos, sin, acos, e
 from utils import normalize_vector
 
 def state_to_bloch(state):    
-    theta = 2*acos(abs(state[0]))
+    theta = 2*acos(round(abs(state[0]), 12)) # округляем чтобы избавиться от неточностей вычислений с плавающей запятой
     phi = phase(state[1]) - phase(state[0])
     return theta, phi
 
